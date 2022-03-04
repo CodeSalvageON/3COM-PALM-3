@@ -34,7 +34,7 @@ body {
     <link href="https://codesalvageon.github.io/magichat/styles/3com.css" rel="stylesheet" type="text/css">
   </head>
   <body class="crt">
-    <section id="window">
+    <section id="window" class="add-scroll">
       <img src="https://codesalvageon.github.io/magichat/images/Screen%20Shot%202022-02-27%20at%2010.17.22%20PM.png" id="welcome" width="400" height="400">
       <section id="mail1" class="absolute-center">
         <p>Connect to Electronic Mail</p>
@@ -47,8 +47,14 @@ body {
         </form>
         <hr/>
         <p id="display-email"></p>
+        <p><img src='' width="150" height="150" id="display-pfp"></p>
       </section>
-      <section id="mail2" class="absolute-center"></section>
+      <section id="mail2" class="absolute-center">
+      <p>Mail!</p>
+      <hr/>
+      <section id="feed">
+      </section>
+      </section>
     </section>
 
     <script src="https://codesalvageon.github.io/magichat/scripts/jquery.js"></script>
