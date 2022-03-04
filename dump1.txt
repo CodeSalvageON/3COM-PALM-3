@@ -1,0 +1,5 @@
+if postimg == "" or postimg == None :
+        db["feed"] = "<b style='display: flex;'><img src='" + pfp + "' width='50' height='50'/>" + sanitizer.sanitize(handle) + "</b><hr/>"+ postcaption + "<hr/><br/>" + db["feed"]
+        return 'ooga booga'
+      else :
+        db["feed"] = "<b style='display: flex;'><img src='" + pfp + "' width='50' height='50'/>" + sanitizer.sanitize(handle) + "</b><hr/><img src='" + postimg + "'/>"+ postcaption + "<hr/><br/>" + db["feed"]

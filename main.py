@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, jsonify, make_response
 app = Flask('app')
 
 from replit import db
@@ -23,12 +23,16 @@ def route2 ():
 
 @app.route('/post',methods = ['POST', 'GET'])
 def login():
+   req = request.get_json()
+   
    if request.method == 'POST':
-      handle = request.form['handle']
-      pfp = request.form['pfp']
-      postimg = request.form['img']
-      postcaption = request.form['caption']
-     
+      print(req)
+      handle = req["handle"]
+      pfp = req["pfp"]
+      postimg = req["img"]
+      postcaption = req["postcaption"]
+      postcaption = sanitizer.sanitize(postcaption)
+
       if postimg == "" or postimg == None :
         db["feed"] = "<b style='display: flex;'><img src='" + pfp + "' width='50' height='50'/>" + sanitizer.sanitize(handle) + "</b><hr/>"+ postcaption + "<hr/><br/>" + db["feed"]
         return 'ooga booga'

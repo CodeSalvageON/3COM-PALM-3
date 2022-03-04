@@ -1,0 +1,5 @@
+handle = req.body.handle
+      pfp = req.body.pfp
+      postimg = req.body.img
+      postcaption = req.body.caption
+      postcaption = sanitizer.sanitize(postcaption)

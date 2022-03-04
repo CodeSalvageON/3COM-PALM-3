@@ -52,6 +52,13 @@ body {
       <section id="mail2" class="absolute-center">
       <p>Mail!</p>
       <hr/>
+      <form id="post-form">
+        <p>Mail caption: <input id="caption" type="text" required/></p>
+        <a href="https://warroomdatabase.codesalvageon.repl.co/" target="_blank">Upload an image here (Optional)</a>
+        <p>Image URL: <input id="img-url" type="text" placeholder="(Optional)"></p>
+        <button>Post</button>
+      </form>
+      <br/>
       <section id="feed">
       </section>
       </section>
