@@ -8,6 +8,12 @@ from pages import *
 
 sanitizer = Sanitizer()
 
+from threading import Thread
+import random
+import time
+import requests
+import logging
+
 @app.route('/')
 def route1 ():
   return html1
@@ -41,5 +47,23 @@ def login():
    else:
       return "You're not supposed to be here..."
 
+def run () :
+  app.run(host='0.0.0.0', port=8080)
 
-app.run(host='0.0.0.0', port=8080)
+def ping(target, debug):
+    while(True):
+        r = requests.get(target)
+        if(debug == True):
+            print(r.status_code)
+        time.sleep(random.randint(30,60))
+      
+def awake(target, debug=False):  
+    log = logging.getLogger('werkzeug')
+    log.disabled = True
+    app.logger.disabled = True  
+    t = Thread(target=run)
+    r = Thread(target=ping, args=(target,debug,))
+    t.start()
+    r.start()
+  
+awake("https://3COM-PALM-3.codesalvageon.repl.co", True)
